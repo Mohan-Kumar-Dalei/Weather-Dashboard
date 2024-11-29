@@ -1,7 +1,7 @@
 // Service Worker Registration
 if ('serviceWorker' in navigator) {
 	window.addEventListener('load', () => {
-		navigator.serviceWorker.register('/service-worker.js');
+		navigator.serviceWorker.register('service-worker.js');
 	});
 }
 
@@ -67,7 +67,7 @@ class WeatherService {
 	}
 
 	async renderIcons(location, dataId, dataIcon, imgEl) {
-		const response = await axios.get('/json/icons.json');
+		const response = await axios.get('json/icons.json');
 		const customIcons = response.data;
 
 		const iconMatch = customIcons.find(icon => icon.id === dataId && icon.icon === dataIcon);
@@ -247,10 +247,10 @@ const timeManager = {
 			this.convertUnixToTimezone(localDateObject, data.timezone).getHours() < sunriseHour ||
 			this.convertUnixToTimezone(localDateObject, data.timezone).getHours() >= sunsetHour
 		) {
-			scenery.src = '/assets/night-landscape.png';
+			scenery.src = 'assets/night-landscape.png';
 			scenery.alt = 'Night landscape';
 		} else {
-			scenery.src = '/assets/day-landscape.png';
+			scenery.src = 'assets/day-landscape.png';
 			scenery.alt = 'Day landscape';
 		}
 	},
@@ -383,7 +383,7 @@ const dailyWeather = {
 			<div class="daily m-2 m-md-0">
 				<p>${timeManager.formatDay(day.dt)}</p>
 					<img
-						src="/assets/loading.svg"
+						src="assets/loading.svg"
 						class="weather-icon forecast-icon mb-2"
 						height="45"
 						width="50"
