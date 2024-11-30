@@ -50,7 +50,7 @@ class WeatherService {
 	}
 
 	fetchCityList() {
-		fetch('/json/cities.json')
+		fetch('json/cities.json')
 			.then(response => response.json())
 			.then(data => {
 				this.cities = data;
