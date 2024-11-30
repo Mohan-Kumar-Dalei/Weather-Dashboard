@@ -1,7 +1,7 @@
 // Service Worker Registration
 if ('serviceWorker' in navigator) {
 	window.addEventListener('load', () => {
-		navigator.serviceWorker.register('service-worker.js');
+		navigator.serviceWorker.register('/service-worker.js');
 	});
 }
 
@@ -491,8 +491,4 @@ themeManager.initialize();
 searchManager.initialize();
 selectedLocationWeather.initialize();
 globalWeather.initialize();
-
-
-
-
 

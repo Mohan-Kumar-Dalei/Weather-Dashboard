@@ -1,11 +1,11 @@
 const CACHE_NAME = 'weather-cache-1';
-const MAIN_URLS = ['/', 'css/styles.css', 'src/main.js'];
+const MAIN_URLS = ['/', '/css/styles.css', '/src/main.js'];
 
 self.addEventListener('install', event => {
 	// waitUntil() ensures installing isn't complete until the following promise resolves
 	event.waitUntil(
 		caches.open(CACHE_NAME).then(cache => {
-			return fetch('json/icons.json')
+			return fetch('/json/icons.json')
 				.then(response => response.json())
 				.then(icons => {
 					const iconURLs = icons.map(icon => icon.src);
