@@ -1,7 +1,7 @@
 // Service Worker Registration
 if ('serviceWorker' in navigator) {
 	window.addEventListener('load', () => {
-		navigator.serviceWorker.register('/service-worker.js');
+		navigator.serviceWorker.register('service-worker.js');
 	});
 }
 
@@ -50,7 +50,7 @@ class WeatherService {
 	}
 
 	fetchCityList() {
-		fetch('json/cities.json')
+		fetch('/json/cities.json')
 			.then(response => response.json())
 			.then(data => {
 				this.cities = data;
@@ -67,7 +67,7 @@ class WeatherService {
 	}
 
 	async renderIcons(location, dataId, dataIcon, imgEl) {
-		const response = await axios.get('json/icons.json');
+		const response = await axios.get('/json/icons.json');
 		const customIcons = response.data;
 
 		const iconMatch = customIcons.find(icon => icon.id === dataId && icon.icon === dataIcon);
